@@ -1,0 +1,4 @@
+error-tags:
+  ECMOJ:
+    packages:
+      - com.exsol.errorcodemodel
