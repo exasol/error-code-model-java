@@ -47,6 +47,11 @@
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
+    <scm>
+        <connection>scm:git:https://github.com/exasol/error-code-model-java.git</connection>
+        <developerConnection>scm:git:https://github.com/exasol/error-code-model-java.git</developerConnection>
+        <url>https://github.com/exasol/error-code-model-java/tree/master</url>
+    </scm>
     <dependencies>
         <dependency>
             <groupId>com.exasol</groupId>
