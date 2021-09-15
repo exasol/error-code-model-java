@@ -4,9 +4,8 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.exasol</groupId>
     <artifactId>error-code-model-java</artifactId>
-    <version>1.0.0
-    </version>
-    <name>error code model java</name>
+    <version>1.0.0</version>
+    <name>Error Code Model Java</name>
     <description>Library for describing error message declarations in Java.</description>
     <url>https://github.com/exasol/error-code-model-java</url>
     <properties>

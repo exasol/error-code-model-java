@@ -1,4 +1,4 @@
-# error code model java 1.0.0, released 2021-09-16
+# Error Code Model Java 1.0.0, released 2021-09-16
 
 Code name: Dependency Updates on Initial Release
 
