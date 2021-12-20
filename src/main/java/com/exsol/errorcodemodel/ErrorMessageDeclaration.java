@@ -30,11 +30,18 @@ public class ErrorMessageDeclaration {
         this.namedParameters = builder.namedParameters;
     }
 
+    /**
+     * Create a builder for {@link ErrorMessageDeclaration}.
+     * 
+     * @return builder
+     */
     public static Builder builder() {
         return new Builder();
     }
 
-
+    /**
+     * Builder for {@link ErrorMessageDeclaration}.
+     */
     public static class Builder {
         private final StringBuilder messageBuilder = new StringBuilder();
         private final List<String> mitigations = new LinkedList<>();
@@ -127,6 +134,11 @@ public class ErrorMessageDeclaration {
             return this;
         }
 
+        /**
+         * Build the {@link ErrorMessageDeclaration}.
+         * 
+         * @return built {@link ErrorMessageDeclaration}
+         */
         public ErrorMessageDeclaration build() {
             return new ErrorMessageDeclaration(this);
         }

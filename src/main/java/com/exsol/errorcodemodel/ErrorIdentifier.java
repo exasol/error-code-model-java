@@ -12,6 +12,16 @@ public class ErrorIdentifier {
     private final String tag;
     private final int index;
 
+    /**
+     * Parse an error identifier string.
+     * <p>
+     * Example: E-TEST-1
+     * </p>
+     * 
+     * @param errorCode error identifier string
+     * @return parsed {@link ErrorIdentifier}
+     * @throws SyntaxException if the code has an invalid syntax
+     */
     public static ErrorIdentifier parse(final String errorCode) throws SyntaxException {
         return new ErrorCodeParser().parse(errorCode);
     }
@@ -20,14 +30,33 @@ public class ErrorIdentifier {
      * Possible types of exasol error codes.
      */
     public enum Type {
-        E, F, W
+        /** Error */
+        E,
+        /** Fatal */
+        F,
+        /** Warning */
+        W
     }
 
+    /**
+     * Exception that is thrown on syntax errors in the {@link ErrorIdentifier}.
+     */
     public static class SyntaxException extends Exception {
+        /**
+         * Create a new instance of {@link SyntaxException}.
+         *
+         * @param message exception message
+         */
         public SyntaxException(final String message) {
             super(message);
         }
 
+        /**
+         * Create a new instance of {@link SyntaxException}.
+         * 
+         * @param message exception message
+         * @param cause   causing exception
+         */
         public SyntaxException(final String message, final Throwable cause) {
             super(message, cause);
         }
