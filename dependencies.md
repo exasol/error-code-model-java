@@ -55,6 +55,7 @@
 [46]: http://maven.apache.org/plugins/maven-clean-plugin/
 [1]: https://opensource.org/licenses/MIT
 [20]: http://www.mojohaus.org/versions-maven-plugin/
+[44]: http://anthonywhitford.com/lombok.maven/lombok-maven-plugin/
 [9]: http://opensource.org/licenses/BSD-3-Clause
 [16]: https://maven.apache.org/plugins/maven-compiler-plugin/
 [3]: https://oss.oracle.com/licenses/CDDL+GPL-1.1
@@ -66,7 +67,6 @@
 [50]: http://maven.apache.org/plugins/maven-jar-plugin/
 [17]: https://www.apache.org/licenses/LICENSE-2.0.txt
 [24]: https://maven.apache.org/enforcer/maven-enforcer-plugin/
-[44]: https://awhitford.github.com/lombok.maven/lombok-maven-plugin/
 [13]: https://www.eclipse.org/legal/epl-v20.html
 [52]: http://maven.apache.org/plugins/maven-install-plugin/
 [12]: https://junit.org/junit5/
