@@ -2,7 +2,12 @@ package com.exsol.errorcodemodel;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.empty;
+import static org.hamcrest.Matchers.nullValue;
+import static org.junit.jupiter.api.Assertions.assertAll;
 
+import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 
@@ -23,5 +28,18 @@ class ErrorCodeReportReaderTest {
         new ErrorCodeReportWriter().writeReport(report, reportFile);
         final ErrorCodeReport readReport = new ErrorCodeReportReader().readReport(reportFile);
         assertThat(readReport, equalTo(report));
+    }
+
+    @Test
+    void testReadMinimalReport(@TempDir final Path tempDir) throws IOException, ErrorCodeReportReader.ReadException {
+        final Path reportFile = tempDir.resolve("report.json");
+        Files.writeString(reportFile,
+                "{\"$schema\":\"https://schemas.exasol.com/error_code_report-1.0.0.json\", \"errorCodes\": [] }");
+        final ErrorCodeReport readReport = new ErrorCodeReportReader().readReport(reportFile);
+        assertAll(//
+                () -> assertThat(readReport.getProjectName(), nullValue()),
+                () -> assertThat(readReport.getProjectVersion(), nullValue()),
+                () -> assertThat(readReport.getErrorMessageDeclarations(), empty())//
+        );
     }
 }
