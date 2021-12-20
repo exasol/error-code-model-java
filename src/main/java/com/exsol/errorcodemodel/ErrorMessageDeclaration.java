@@ -1,10 +1,16 @@
 package com.exsol.errorcodemodel;
 
-import java.util.*;
+import java.util.LinkedList;
+import java.util.List;
+
+import lombok.*;
 
 /**
  * This class represents declaration
  */
+@Getter
+@EqualsAndHashCode
+@ToString
 public class ErrorMessageDeclaration {
     private final String identifier;
     private final String message;
@@ -24,101 +30,18 @@ public class ErrorMessageDeclaration {
         this.namedParameters = builder.namedParameters;
     }
 
+    /**
+     * Create a builder for {@link ErrorMessageDeclaration}.
+     * 
+     * @return builder
+     */
     public static Builder builder() {
         return new Builder();
     }
 
     /**
-     * Get the error code
-     *
-     * @return error code
+     * Builder for {@link ErrorMessageDeclaration}.
      */
-    public String getIdentifier() {
-        return this.identifier;
-    }
-
-    /**
-     * Get the file in which this error message is declared.
-     * 
-     * @return path of the file relative to the project's directory
-     */
-    public String getSourceFile() {
-        return this.sourceFile;
-    }
-
-    /**
-     * Line number of the ExaError.messageBuilder call.
-     * 
-     * @return line number
-     */
-    public int getLine() {
-        return this.line;
-    }
-
-    /**
-     * Get the declaring java package.
-     * 
-     * @return declaring java package
-     */
-    public String getDeclaringPackage() {
-        return this.declaringPackage;
-    }
-
-    /**
-     * Get the message (including placeholders).
-     * 
-     * @return message
-     */
-    public String getMessage() {
-        return this.message;
-    }
-
-    /**
-     * Get a list of mitigations.
-     * 
-     * @return mitigations
-     */
-    public List<String> getMitigations() {
-        return this.mitigations;
-    }
-
-    /**
-     * Get the named parameters.
-     * 
-     * @return list of named parameters
-     */
-    public List<NamedParameter> getNamedParameters() {
-        return this.namedParameters;
-    }
-
-    @Override
-    public boolean equals(final Object other) {
-        if (this == other)
-            return true;
-        if (other == null || getClass() != other.getClass())
-            return false;
-        final ErrorMessageDeclaration that = (ErrorMessageDeclaration) other;
-        return this.line == that.line && Objects.equals(this.identifier, that.identifier)
-                && Objects.equals(this.message, that.message) && Objects.equals(this.sourceFile, that.sourceFile)
-                && Objects.equals(this.declaringPackage, that.declaringPackage)
-                && Objects.equals(this.mitigations, that.mitigations)
-                && Objects.equals(this.namedParameters, that.namedParameters);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(this.identifier, this.message, this.sourceFile, this.line, this.declaringPackage,
-                this.mitigations, this.namedParameters);
-    }
-
-    @Override
-    public String toString() {
-        return "ErrorMessageDeclaration{" + "identifier='" + this.identifier + '\'' + ", message='" + this.message
-                + '\'' + ", sourceFile='" + this.sourceFile + '\'' + ", line=" + this.line + ", declaringPackage='"
-                + this.declaringPackage + '\'' + ", mitigations=" + this.mitigations + ", namedParameters="
-                + this.namedParameters + '}';
-    }
-
     public static class Builder {
         private final StringBuilder messageBuilder = new StringBuilder();
         private final List<String> mitigations = new LinkedList<>();
@@ -211,6 +134,11 @@ public class ErrorMessageDeclaration {
             return this;
         }
 
+        /**
+         * Build the {@link ErrorMessageDeclaration}.
+         * 
+         * @return built {@link ErrorMessageDeclaration}
+         */
         public ErrorMessageDeclaration build() {
             return new ErrorMessageDeclaration(this);
         }

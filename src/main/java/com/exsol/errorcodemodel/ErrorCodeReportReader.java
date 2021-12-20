@@ -15,7 +15,8 @@ import com.exasol.errorreporting.ExaError;
  */
 public class ErrorCodeReportReader {
     private static final Set<String> SUPPORTED_SCHEMAS = Set
-            .of("https://schemas.exasol.com/error_code_report-0.2.0.json");
+            .of("https://schemas.exasol.com/error_code_report-0.2.0.json",
+                    "https://schemas.exasol.com/error_code_report-1.0.0.json");
     private static final JsonProvider JSON = JsonProvider.provider();
 
     /**
@@ -30,7 +31,8 @@ public class ErrorCodeReportReader {
         verifySchemaIsSupported(reportJson);
         final JsonArray errorCodesJson = reportJson.getJsonArray("errorCodes");
         final List<ErrorMessageDeclaration> errorMessageDeclarations = readErrorMessageDeclarations(errorCodesJson);
-        return new ErrorCodeReport(reportJson.getString("projectName", ""), reportJson.getString("projectVersion", ""),
+        return new ErrorCodeReport(reportJson.getString("projectName", null),
+                reportJson.getString("projectVersion", null),
                 errorMessageDeclarations);
     }
 
