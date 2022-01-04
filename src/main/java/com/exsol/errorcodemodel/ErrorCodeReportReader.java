@@ -14,9 +14,9 @@ import com.exasol.errorreporting.ExaError;
  * This class reads an {@link ErrorCodeReport} from JSON file.
  */
 public class ErrorCodeReportReader {
-    private static final Set<String> SUPPORTED_SCHEMAS = Set
-            .of("https://schemas.exasol.com/error_code_report-0.2.0.json",
-                    "https://schemas.exasol.com/error_code_report-1.0.0.json");
+    private static final Set<String> SUPPORTED_SCHEMAS = Set.of(
+            "https://schemas.exasol.com/error_code_report-0.2.0.json",
+            "https://schemas.exasol.com/error_code_report-1.0.0.json");
     private static final JsonProvider JSON = JsonProvider.provider();
 
     /**
@@ -32,8 +32,7 @@ public class ErrorCodeReportReader {
         final JsonArray errorCodesJson = reportJson.getJsonArray("errorCodes");
         final List<ErrorMessageDeclaration> errorMessageDeclarations = readErrorMessageDeclarations(errorCodesJson);
         return new ErrorCodeReport(reportJson.getString("projectName", null),
-                reportJson.getString("projectVersion", null),
-                errorMessageDeclarations);
+                reportJson.getString("projectVersion", null), errorMessageDeclarations);
     }
 
     private List<ErrorMessageDeclaration> readErrorMessageDeclarations(final JsonArray errorCodesJson) {
@@ -57,19 +56,24 @@ public class ErrorCodeReportReader {
 
     private void readMitigations(final JsonObject errorCodeJson,
             final ErrorMessageDeclaration.Builder errorDeclarationBuilder) {
-        for (final JsonValue jsonValue : errorCodeJson.getJsonArray("mitigations")) {
-            final JsonString mitigation = (JsonString) jsonValue;
-            errorDeclarationBuilder.appendMitigation(mitigation.getString());
+        final JsonArray mitigations = errorCodeJson.getJsonArray("mitigations");
+        if (mitigations != null) {
+            for (final JsonValue jsonValue : mitigations) {
+                final JsonString mitigation = (JsonString) jsonValue;
+                errorDeclarationBuilder.appendMitigation(mitigation.getString());
+            }
         }
     }
 
     private void readParameters(final JsonObject errorCodeJson,
             final ErrorMessageDeclaration.Builder errorDeclarationBuilder) {
         final JsonArray placeholdersJson = errorCodeJson.getJsonArray("messagePlaceholders");
-        for (final JsonValue jsonValue : placeholdersJson) {
-            final JsonObject placeholderJson = jsonValue.asJsonObject();
-            errorDeclarationBuilder.addParameter(placeholderJson.getString("placeholder", ""),
-                    placeholderJson.getString("description", ""));
+        if (placeholdersJson != null) {
+            for (final JsonValue jsonValue : placeholdersJson) {
+                final JsonObject placeholderJson = jsonValue.asJsonObject();
+                errorDeclarationBuilder.addParameter(placeholderJson.getString("placeholder", ""),
+                        placeholderJson.getString("description", ""));
+            }
         }
     }
 
