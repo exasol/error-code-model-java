@@ -42,4 +42,18 @@ class ErrorCodeReportReaderTest {
                 () -> assertThat(readReport.getErrorMessageDeclarations(), empty())//
         );
     }
+
+    @Test
+    void testReadMinimalErrorCode(@TempDir final Path tempDir) throws IOException, ErrorCodeReportReader.ReadException {
+        final Path reportFile = tempDir.resolve("report.json");
+        Files.writeString(reportFile,
+                "{\"$schema\":\"https://schemas.exasol.com/error_code_report-1.0.0.json\", \"errorCodes\": [{\"identifier\":\"E-TEST-1\"}] }");
+        final ErrorCodeReport readReport = new ErrorCodeReportReader().readReport(reportFile);
+        final List<ErrorMessageDeclaration> errorMessageDeclarations = readReport.getErrorMessageDeclarations();
+        assertAll(//
+                () -> assertThat(readReport.getProjectName(), nullValue()),
+                () -> assertThat(readReport.getProjectVersion(), nullValue()),
+                () -> assertThat(errorMessageDeclarations.get(0).getIdentifier(), equalTo("E-TEST-1"))//
+        );
+    }
 }
