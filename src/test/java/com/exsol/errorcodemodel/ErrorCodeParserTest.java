@@ -19,6 +19,7 @@ class ErrorCodeParserTest {
             "E-EXA-1, E, EXA, 1", //
             "F-EXA-E1-1, F, EXA-E1, 1", //
             "W-EXA-0, W, EXA, 0", //
+            "W-EXA1-MOD1-0, W, EXA1-MOD1, 0", //
             "E-A-6, E, A, 6", //
             "E-A-B-6, E, A-B, 6", //
             "E-LONGERRORC-1, E, LONGERRORC, 1", //
@@ -31,8 +32,9 @@ class ErrorCodeParserTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = { "E-EXA-X", "E-EXA-", "-EXA-1", "--EXA-1", "E-1XA-1", "E-TOOLONGERRO-1", "E-EXA-TOOLONGERRO-2",
-            "F-EXA-E1-E2-1", "E-EXA-MOD-MOD-1", "W-lower-2", "W-?CODE-2", "W-CODE?-3", "E-4", "E--5" })
+    @ValueSource(strings = { "E-EXA-X", "E-EXA-", "-EXA-1", "--EXA-1", "E-1XA-1", "E-EXA-1MOD-1", "E-TOOLONGERRO-1",
+            "E-EXA-TOOLONGERRO-2", "F-EXA-E1-E2-1", "E-EXA-MOD-MOD-1", "W-lower-2", "W-?CODE-2", "W-CODE?-3", "E-4",
+            "E--5" })
     void testInvalidSyntax(final String code) {
         final ErrorIdentifier.SyntaxException exception = assertThrows(ErrorIdentifier.SyntaxException.class,
                 () -> ERROR_CODE_READER.parse(code));
