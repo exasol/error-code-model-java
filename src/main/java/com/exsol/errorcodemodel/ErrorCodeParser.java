@@ -8,7 +8,7 @@ import com.exasol.errorreporting.ExaError;
  * This class parses {@link ErrorIdentifier}s from their string representation.
  */
 class ErrorCodeParser {
-    private static final Pattern ERROR_CODE_PATTERN = Pattern.compile("([^-]+)-([^-]+(?:-[^\\d][^-]+)*+)-(\\d+)");
+    private static final Pattern ERROR_CODE_PATTERN = Pattern.compile("([^-]+)-([A-Z][A-Z0-9]{0,9}(?:-[A-Z][A-Z0-9]{0,9})?)-(\\d+)");
 
     /**
      * Read an {@link ErrorIdentifier}s from it's string representation.
@@ -22,7 +22,8 @@ class ErrorCodeParser {
         if (!matcher.matches()) {
             throw new ErrorIdentifier.SyntaxException(
                     ExaError.messageBuilder("E-ECMOJ-1").message("The error code {{error code}} has an invalid format.")
-                            .parameter("error code", errorCodeString).toString());
+                            .parameter("error code", errorCodeString)
+                            .mitigation("Use a code like 'E-EXA-1' or 'W-EXA-MOD-2', tags can have max. 10 chars.").toString());
         }
         final var errorType = parseErrorType(matcher.group(1), errorCodeString);
         final String errorTag = matcher.group(2);
