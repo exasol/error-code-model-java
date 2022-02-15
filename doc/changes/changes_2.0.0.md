@@ -4,15 +4,7 @@ Code name: Enforce stricter error code format
 
 ## Summary
 
-**This is a breaking change:** Before, error codes with more than one module name (e.g. `E-EXA-MOD1-MOD2-42`) where allowed. To unify error codes we limit this now to at most one module name (e.g. `E-EXA-MOD1-42`) as specified in the [spec](https://github.com/exasol/error-code-crawler-maven-plugin/blob/main/doc/requirements.md#verify-error-identifier).
-
-```
-error-identifier = severity "-" project-short-tag [ "-" module-short-tag ] "-" error-number
-severity = ( "F" / "E" / "W" )
-project-short-tag = ALPHA 1*10ALPHANUM
-module-short-tag = ALPHA 1*10ALPHANUM
-error-number = 1*5ALPHANUM
-```
+**This is a breaking change:** Before, error codes with more than one module name (e.g. `E-EXA-MOD1-MOD2-42`) where allowed. To unify error codes we limit this now to at most one module name (e.g. `E-EXA-MOD1-42`) as specified in the [spec](https://github.com/exasol/error-code-crawler-maven-plugin/blob/main/doc/requirements.md#verify-error-identifier). Tags can now have at most 10 characters and the severity (`F`, `W`, `E`) is now optional, defaulting to `E`. This allows using error codes like `SQL-1234`. See the ABNF grammar in the [readme](../../README.md).
 
 ## Features
 
