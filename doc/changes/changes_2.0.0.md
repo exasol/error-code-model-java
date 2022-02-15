@@ -1,4 +1,4 @@
-# Error Code Model Java 2.0.0, released 2022-02-??
+# Error Code Model Java 2.0.0, released 2022-02-15
 
 Code name: Enforce stricter error code format
 
