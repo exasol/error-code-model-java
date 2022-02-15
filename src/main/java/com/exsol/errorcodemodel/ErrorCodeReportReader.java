@@ -101,6 +101,8 @@ public class ErrorCodeReportReader {
      * Exception that is thrown when something went wrong with reading the error-report.
      */
     public static class ReadException extends Exception {
+        private static final long serialVersionUID = -4415784194427106258L;
+
         /**
          * Create a new instance of {@link ReadException}.
          *
