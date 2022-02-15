@@ -17,6 +17,7 @@ class ErrorCodeParserTest {
     @ParameterizedTest
     @CsvSource(value = { //
             "E-EXA-1, E, EXA, 1", //
+            "E-SQL-1234, E, SQL, 1234", //
             "F-EXA-E1-1, F, EXA-E1, 1", //
             "W-EXA-0, W, EXA, 0", //
             "W-EXA1-MOD1-0, W, EXA1-MOD1, 0", //
