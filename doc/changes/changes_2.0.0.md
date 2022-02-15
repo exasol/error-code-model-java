@@ -9,8 +9,8 @@ Code name: Enforce stricter error code format
 ```
 error-identifier = severity "-" project-short-tag [ "-" module-short-tag ] "-" error-number
 severity = ( "F" / "E" / "W" )
-project-short-tag = ALPHA 1*4ALPHANUM
-module-short-tag = ALPHA 1*4ALPHANUM
+project-short-tag = ALPHA 1*10ALPHANUM
+module-short-tag = ALPHA 1*10ALPHANUM
 error-number = 1*5ALPHANUM
 ```
 
