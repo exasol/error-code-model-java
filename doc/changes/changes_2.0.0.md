@@ -27,4 +27,3 @@ Code name: Enforce stricter error code format
 * Updated `org.codehaus.mojo:versions-maven-plugin:2.7` to `2.9.0`
 * Updated `org.jacoco:jacoco-maven-plugin:0.8.5` to `0.8.7`
 * Updated `org.sonatype.ossindex.maven:ossindex-maven-plugin:3.1.0` to `3.2.0`
-* Updated `org.sonatype.plugins:nexus-staging-maven-plugin:1.6.8` to `1.6.10`
