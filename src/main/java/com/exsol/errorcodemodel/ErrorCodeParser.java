@@ -11,7 +11,7 @@ class ErrorCodeParser {
     private static final Pattern ERROR_CODE_PATTERN = Pattern.compile("([^-]+)-([A-Z][A-Z0-9]{0,9}(?:-[A-Z][A-Z0-9]{0,9})?)-(\\d+)");
 
     /**
-     * Read an {@link ErrorIdentifier}s from it's string representation.
+     * Read an {@link ErrorIdentifier} from it's string representation.
      *
      * @param errorCodeString error code's string representation (e.g. E-EX-1)
      * @return built {@link ErrorIdentifier}
