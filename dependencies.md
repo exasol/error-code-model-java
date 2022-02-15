@@ -31,7 +31,7 @@
 | [Maven Surefire Plugin][26]                             | [Apache License, Version 2.0][11]              |
 | [JaCoCo :: Maven Plugin][28]                            | [Eclipse Public License 2.0][29]               |
 | [Apache Maven GPG Plugin][30]                           | [Apache License, Version 2.0][11]              |
-| [Maven Deploy Plugin][32]                               | [The Apache Software License, Version 2.0][23] |
+| [Apache Maven Deploy Plugin][32]                        | [Apache License, Version 2.0][11]              |
 | [Nexus Staging Maven Plugin][34]                        | [Eclipse Public License][35]                   |
 | [Apache Maven Source Plugin][36]                        | [Apache License, Version 2.0][11]              |
 | [Apache Maven Javadoc Plugin][38]                       | [Apache License, Version 2.0][11]              |
@@ -59,6 +59,7 @@
 [16]: https://maven.apache.org/plugins/maven-compiler-plugin/
 [3]: https://oss.oracle.com/licenses/CDDL+GPL-1.1
 [29]: https://www.eclipse.org/legal/epl-2.0/
+[32]: https://maven.apache.org/plugins/maven-deploy-plugin/
 [35]: http://www.eclipse.org/legal/epl-v10.html
 [28]: https://www.jacoco.org/jacoco/trunk/doc/maven.html
 [7]: https://projectlombok.org/LICENSE
@@ -74,7 +75,6 @@
 [30]: https://maven.apache.org/plugins/maven-gpg-plugin/
 [36]: https://maven.apache.org/plugins/maven-source-plugin/
 [8]: http://hamcrest.org/JavaHamcrest/
-[32]: http://maven.apache.org/plugins/maven-deploy-plugin/
 [54]: http://maven.apache.org/plugins/maven-site-plugin/
 [48]: http://maven.apache.org/plugins/maven-resources-plugin/
 [38]: https://maven.apache.org/plugins/maven-javadoc-plugin/

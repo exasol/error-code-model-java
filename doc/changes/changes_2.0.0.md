@@ -28,6 +28,7 @@ error-number = 1*5ALPHANUM
 
 * Updated `io.github.zlika:reproducible-build-maven-plugin:0.13` to `0.15`
 * Updated `org.apache.maven.plugins:maven-compiler-plugin:3.8.1` to `3.10.0`
+* Updated `org.apache.maven.plugins:maven-deploy-plugin:2.7` to `3.0.0-M2`
 * Updated `org.apache.maven.plugins:maven-enforcer-plugin:3.0.0-M3` to `3.0.0`
 * Updated `org.apache.maven.plugins:maven-gpg-plugin:1.6` to `3.0.1`
 * Updated `org.apache.maven.plugins:maven-javadoc-plugin:3.3.1` to `3.3.2`
