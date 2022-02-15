@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.With;
 
 /**
- * This class represents a error-code-report in Java.
+ * This class represents an error-code-report in Java.
  */
 @Data
 public class ErrorCodeReport {

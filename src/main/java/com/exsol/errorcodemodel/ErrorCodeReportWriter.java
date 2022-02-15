@@ -15,7 +15,7 @@ import com.exasol.errorreporting.ExaError;
  */
 public class ErrorCodeReportWriter {
     /** Schema of the report */
-    public static final String SCHEMA = "https://schemas.exasol.com/error_code_report-0.2.0.json";
+    public static final String SCHEMA = "https://schemas.exasol.com/error_code_report-1.0.0.json";
     private static final JsonProvider JSON = JsonProvider.provider();
 
     /**

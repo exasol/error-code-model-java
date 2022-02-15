@@ -42,6 +42,8 @@ public class ErrorIdentifier {
      * Exception that is thrown on syntax errors in the {@link ErrorIdentifier}.
      */
     public static class SyntaxException extends Exception {
+        private static final long serialVersionUID = -4437252433544068436L;
+
         /**
          * Create a new instance of {@link SyntaxException}.
          *
