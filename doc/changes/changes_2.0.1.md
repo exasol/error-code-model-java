@@ -7,4 +7,3 @@ Code name: Writing Report Without Name or Version
 * #12: Added support for writing a report without name and version
 
 ## Dependency Updates
-
