@@ -39,8 +39,12 @@ public class ErrorCodeReportWriter {
     private JsonObject renderReport(final ErrorCodeReport report) {
         final JsonObjectBuilder reportJson = JSON.createObjectBuilder();
         reportJson.add("$schema", SCHEMA);
-        reportJson.add("projectName", report.getProjectName());
-        reportJson.add("projectVersion", report.getProjectVersion());
+        if (report.getProjectName() != null) {
+            reportJson.add("projectName", report.getProjectName());
+        }
+        if (report.getProjectVersion() != null) {
+            reportJson.add("projectVersion", report.getProjectVersion());
+        }
         reportJson.add("errorCodes", renderErrorCodes(report.getErrorMessageDeclarations()));
         return reportJson.build();
     }
