@@ -8,6 +8,10 @@ Code name:
 
 ## Dependency Updates
 
+### Test Dependency Updates
+
+* Updated `nl.jqno.equalsverifier:equalsverifier:3.9` to `3.10`
+
 ### Plugin Dependency Updates
 
 * Updated `com.exasol:project-keeper-maven-plugin:1.3.4` to `2.2.0`
