@@ -33,6 +33,11 @@ public class ErrorMessageDeclaration {
         this.namedParameters = builder.namedParameters;
     }
 
+    /**
+     * Get a copy of this error message declaration without source position (file and line).
+     * 
+     * @return copy without source position
+     */
     public ErrorMessageDeclaration withoutSourcePosition() {
         return this.withSourceFile(null).withLine(-1);
     }
