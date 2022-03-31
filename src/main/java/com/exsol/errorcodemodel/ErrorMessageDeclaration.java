@@ -11,10 +11,13 @@ import lombok.*;
 @Getter
 @EqualsAndHashCode
 @ToString
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class ErrorMessageDeclaration {
     private final String identifier;
     private final String message;
+    @With(AccessLevel.PRIVATE)
     private final String sourceFile;
+    @With(AccessLevel.PRIVATE)
     private final int line;
     private final String declaringPackage;
     private final List<String> mitigations;
@@ -28,6 +31,15 @@ public class ErrorMessageDeclaration {
         this.line = builder.line;
         this.mitigations = builder.mitigations;
         this.namedParameters = builder.namedParameters;
+    }
+
+    /**
+     * Get a copy of this error message declaration without source position (file and line).
+     * 
+     * @return copy without source position
+     */
+    public ErrorMessageDeclaration withoutSourcePosition() {
+        return this.withSourceFile(null).withLine(-1);
     }
 
     /**

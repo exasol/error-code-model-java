@@ -1,7 +1,7 @@
 # Error Code Model for Java
 
 [![Build Status](https://github.com/exasol/error-code-model-java/actions/workflows/ci-build.yml/badge.svg)](https://github.com/exasol/error-code-model-java/actions/workflows/ci-build.yml)
-[![Maven Central](https://img.shields.io/maven-central/v/com.exasol/error-code-model-java)](https://search.maven.org/artifact/com.exasol/error-code-model-java)
+[![Maven Central – Error Code Model Java](https://img.shields.io/maven-central/v/com.exasol/error-code-model-java)](https://search.maven.org/artifact/com.exasol/error-code-model-java)
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=com.exasol%3Aerror-code-model-java&metric=alert_status)](https://sonarcloud.io/dashboard?id=com.exasol%3Aerror-code-model-java)
 
@@ -28,6 +28,7 @@ error-number = 1*5ALPHANUM
 ```
 
 The `serverity` is optional and defaults to `E`. The following severities are supported:
+
 * `F`: failure
 * `E`: error
 * `W`: warning
