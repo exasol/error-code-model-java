@@ -63,7 +63,9 @@ public class ErrorCodeReportWriter {
         addIfNotNull(errorCode, "message", errorMessageDeclaration.getMessage());
         errorCode.add("messagePlaceholders", renderPlaceholders(errorMessageDeclaration.getNamedParameters()));
         addIfNotNull(errorCode, "sourceFile", errorMessageDeclaration.getSourceFile());
-        errorCode.add("sourceLine", errorMessageDeclaration.getLine());
+        if (errorMessageDeclaration.getLine() != -1) {
+            errorCode.add("sourceLine", errorMessageDeclaration.getLine());
+        }
         errorCode.add("mitigations", renderMitigations(errorMessageDeclaration));
         return errorCode;
     }

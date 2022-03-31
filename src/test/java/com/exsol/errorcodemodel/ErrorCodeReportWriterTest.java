@@ -36,4 +36,14 @@ class ErrorCodeReportWriterTest {
         assertThat(Files.readString(reportFile), equalTo(
                 "{\"$schema\":\"https://schemas.exasol.com/error_code_report-1.0.0.json\",\"errorCodes\":[{\"identifier\":\"E-Test-1\",\"message\":\"My message.\",\"messagePlaceholders\":[{\"placeholder\":\"TEST\",\"description\":\"A parameter\"}],\"sourceFile\":\"test.java\",\"sourceLine\":2,\"mitigations\":[]}]}"));
     }
+
+    @Test
+    void testWriteReportWithoutSourcePosition(@TempDir final Path tempDir) throws IOException {
+        final ErrorCodeReport report = new ErrorCodeReport("my-demo-project", "1.2.3", List
+                .of(ErrorMessageDeclaration.builder().identifier("E-Test-1").prependMessage("My message.").build()));
+        final Path reportFile = tempDir.resolve("error_code_report.json");
+        new ErrorCodeReportWriter().writeReport(report, reportFile);
+        assertThat(Files.readString(reportFile), equalTo(
+                "{\"$schema\":\"https://schemas.exasol.com/error_code_report-1.0.0.json\",\"projectName\":\"my-demo-project\",\"projectVersion\":\"1.2.3\",\"errorCodes\":[{\"identifier\":\"E-Test-1\",\"message\":\"My message.\",\"messagePlaceholders\":[],\"mitigations\":[]}]}"));
+    }
 }
