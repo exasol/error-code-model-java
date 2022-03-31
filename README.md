@@ -13,7 +13,7 @@
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=com.exasol%3Aerror-code-model-java&metric=code_smells)](https://sonarcloud.io/dashboard?id=com.exasol%3Aerror-code-model-java)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=com.exasol%3Aerror-code-model-java&metric=coverage)](https://sonarcloud.io/dashboard?id=com.exasol%3Aerror-code-model-java)
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=com.exasol%3Aerror-code-model-java&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=com.exasol%3Aerror-code-model-java)
-[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=com.exasol%3Aerror-code-model-java&metric=ncloc)](https://sonarcloud.io/dashboard?id=com.exasol%3Aerror-code-model-java)1
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=com.exasol%3Aerror-code-model-java&metric=ncloc)](https://sonarcloud.io/dashboard?id=com.exasol%3Aerror-code-model-java)
 
 This repository contains a Java library for describing error message declarations.
 
