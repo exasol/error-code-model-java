@@ -12,14 +12,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>11</java.version>
         <junit.version>5.9.0</junit.version>
-        <jacoco.version>0.8.5</jacoco.version>
         <gpg.skip>true</gpg.skip>
-        <org.testcontainers.version>1.15.1</org.testcontainers.version>
-        <!--
-            M4 does not fail tests if beforeAll fails
-            M5 fails in integration tests with a strange error
-            -->
-        <surefire.and.failsafe.plugin.version>3.0.0-M3</surefire.and.failsafe.plugin.version>
     </properties>
     <licenses>
         <license>
