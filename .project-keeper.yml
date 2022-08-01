@@ -5,7 +5,7 @@ sources:
       - maven_central
       - lombok
 linkReplacements:
-  - https://awhitford.github.com/lombok.maven/lombok-maven-plugin/|http://anthonywhitford.com/lombok.maven/lombok-maven-plugin/"
+  - "https://anthonywhitford.com/lombok.maven/lombok-maven-plugin/|https://projectlombok.org/setup/maven"
 excludes:
   - "E-PK-CORE-18: Outdated content: '.github/workflows/ci-build.yml'"
   - "E-PK-CORE-18: Outdated content: '.github/workflows/release_droid_upload_github_release_assets.yml'"

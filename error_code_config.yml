@@ -2,3 +2,4 @@ error-tags:
   ECMOJ:
     packages:
       - com.exsol.errorcodemodel
+    highest-index: 5
