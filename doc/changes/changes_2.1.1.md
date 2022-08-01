@@ -1,6 +1,6 @@
 # Error Code Model Java 2.1.1, released 2022-08-01
 
-Code name: 
+Code name: Dependency update and fix for broken links
 
 ## Summary
 
