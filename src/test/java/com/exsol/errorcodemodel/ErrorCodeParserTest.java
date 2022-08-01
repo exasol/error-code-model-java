@@ -43,7 +43,8 @@ class ErrorCodeParserTest {
                 final ErrorIdentifier.SyntaxException exception = assertThrows(ErrorIdentifier.SyntaxException.class,
                                 () -> ERROR_CODE_READER.parse(code));
                 assertThat(exception.getMessage(), equalTo("E-ECMOJ-1: The error code '" + code
-                                + "' has an invalid format. Use a code like 'EXA-1', 'E-EXA-1' or 'W-EXA-MOD-2', tags can have max. 10 chars."));
+                                + "' has an invalid format. Use a code like 'EXA-1', 'E-EXA-1' or 'W-EXA-MOD-2',"
+                        + " tags can have max. 10 chars."));
         }
 
         @ParameterizedTest

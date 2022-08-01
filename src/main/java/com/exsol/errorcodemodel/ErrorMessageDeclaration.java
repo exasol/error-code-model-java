@@ -2,22 +2,18 @@ package com.exsol.errorcodemodel;
 
 import java.util.LinkedList;
 import java.util.List;
-
-import lombok.*;
+import java.util.Objects;
 
 /**
- * This class represents declaration
+ * This class represents an error message declaration as you would find it in the Java code.
  */
-@Getter
-@EqualsAndHashCode
-@ToString
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
-public class ErrorMessageDeclaration {
+
+public final class ErrorMessageDeclaration {
+    private static final String NO_SOURCE_FILE = null;
+    private static final int NO_SOURCE_LINE = -1;
     private final String identifier;
     private final String message;
-    @With(AccessLevel.PRIVATE)
     private final String sourceFile;
-    @With(AccessLevel.PRIVATE)
     private final int line;
     private final String declaringPackage;
     private final List<String> mitigations;
@@ -27,10 +23,85 @@ public class ErrorMessageDeclaration {
         this.identifier = builder.identifier;
         this.message = builder.messageBuilder.toString();
         this.sourceFile = builder.sourceFile;
-        this.declaringPackage = builder.declaringPackage;
         this.line = builder.line;
+        this.declaringPackage = builder.declaringPackage;
         this.mitigations = builder.mitigations;
         this.namedParameters = builder.namedParameters;
+    }
+
+    private ErrorMessageDeclaration(final String identifier, final String message, final String sourceFile,
+                                    final int line, final String declaringPackage, final List<String> mitigations,
+                                    final List<NamedParameter> namedParameters) {
+        this.identifier = identifier;
+        this.message = message;
+        this.sourceFile = sourceFile;
+        this.line = line;
+        this.declaringPackage = declaringPackage;
+        this.mitigations = mitigations;
+        this.namedParameters = namedParameters;
+    }
+
+    /**
+     * Get the error code identifier.
+     *
+     * @return error code identifier
+     */
+    public String getIdentifier() {
+        return identifier;
+    }
+
+    /**
+     * Get the error message.
+     *
+     * @return error message
+     */
+    public String getMessage() {
+        return message;
+    }
+
+    /**
+     * Get the file this error code is defined in.
+     *
+     * @return file in which the error code is defined
+     */
+    public String getSourceFile() {
+        return sourceFile;
+    }
+
+    /**
+     * Get the line on which the error code is defined.
+     *
+     * @return line on which the error code is defined
+     */
+    public int getLine() {
+        return line;
+    }
+
+    /**
+     * Get the package in which the error code is defined.
+     *
+     * @return package in which the error code is defined
+     */
+    public String getDeclaringPackage() {
+        return declaringPackage;
+    }
+
+    /**
+     * Get the mitigations that users can try to solve this error.
+     *
+     * @return mitigation for this error
+     */
+    public List<String> getMitigations() {
+        return mitigations;
+    }
+
+    /**
+     * Get the list of named parameters.
+     *
+     * @return list of named parameters
+     */
+    public List<NamedParameter> getNamedParameters() {
+        return namedParameters;
     }
 
     /**
@@ -39,7 +110,25 @@ public class ErrorMessageDeclaration {
      * @return copy without source position
      */
     public ErrorMessageDeclaration withoutSourcePosition() {
-        return this.withSourceFile(null).withLine(-1);
+        return new ErrorMessageDeclaration(this.identifier, this.message, NO_SOURCE_FILE, NO_SOURCE_LINE,
+                this.declaringPackage, this.mitigations, this.namedParameters);
+    }
+
+    @Override
+    public boolean equals(final Object other) {
+        if (this == other) return true;
+        if (other == null || getClass() != other.getClass()) return false;
+        final ErrorMessageDeclaration that = (ErrorMessageDeclaration) other;
+        return line == that.line && Objects.equals(identifier, that.identifier) && Objects.equals(message, that.message)
+                && Objects.equals(sourceFile, that.sourceFile)
+                && Objects.equals(declaringPackage, that.declaringPackage)
+                && Objects.equals(mitigations, that.mitigations)
+                && Objects.equals(namedParameters, that.namedParameters);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(identifier, message, sourceFile, line, declaringPackage, mitigations, namedParameters);
     }
 
     /**
@@ -59,8 +148,8 @@ public class ErrorMessageDeclaration {
         private final List<String> mitigations = new LinkedList<>();
         private final List<NamedParameter> namedParameters = new LinkedList<>();
         private String identifier;
-        private String sourceFile;
-        private int line = -1;
+        private String sourceFile = NO_SOURCE_FILE;
+        private int line = NO_SOURCE_LINE;
         private String declaringPackage;
 
         private Builder() {
@@ -81,7 +170,7 @@ public class ErrorMessageDeclaration {
          * Set the position where the error message is declared.
          *
          * @param sourceFile name of the source file relative to the project's root directory
-         * @param line       linux number
+         * @param line       line number
          * @return self for fluent programming
          */
         public Builder setPosition(final String sourceFile, final int line) {
