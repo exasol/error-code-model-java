@@ -27,7 +27,7 @@ public final class ErrorIdentifier {
 
     /**
      * Create a new instance of an {@link ErrorIdentifier}.
-     * @param type type of error (warning, error, fatal)
+     * @param type type of error (e.g. warning, error, fatal)
      * @param tag error tag
      * @param index index number of the error
      */
