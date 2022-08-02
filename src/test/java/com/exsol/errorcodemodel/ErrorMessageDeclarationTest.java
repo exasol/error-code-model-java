@@ -27,4 +27,9 @@ class ErrorMessageDeclarationTest {
                 () -> assertThat(result.getMessage(), equalTo("my message"))//
         );
     }
+
+    @Test
+    void testEquals() {
+        EqualsVerifier.simple().forClass(ErrorMessageDeclaration.class).verify();
+    }
 }

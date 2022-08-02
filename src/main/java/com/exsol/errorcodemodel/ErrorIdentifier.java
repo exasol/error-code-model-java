@@ -1,13 +1,12 @@
 package com.exsol.errorcodemodel;
 
-import lombok.Data;
+import java.util.Objects;
 
 /**
  * This class represents an Exasol error code (e.g: E-EX-1). Each tag has a type (eg: E), a tag (e.g: EX) and an index
  * (e.g: 1).
  */
-@Data
-public class ErrorIdentifier {
+public final class ErrorIdentifier {
     private final Type type;
     private final String tag;
     private final int index;
@@ -15,9 +14,9 @@ public class ErrorIdentifier {
     /**
      * Parse an error identifier string.
      * <p>
-     * Example: E-TEST-1
+     * Example: {@code E-TEST-1}
      * </p>
-     * 
+     *
      * @param errorCode error identifier string
      * @return parsed {@link ErrorIdentifier}
      * @throws SyntaxException if the code has an invalid syntax
@@ -27,7 +26,56 @@ public class ErrorIdentifier {
     }
 
     /**
-     * Possible types of exasol error codes.
+     * Create a new instance of an {@link ErrorIdentifier}.
+     * @param type type of error (e.g. warning, error, fatal)
+     * @param tag error tag
+     * @param index index number of the error
+     */
+    public ErrorIdentifier(final Type type, final String tag, final int index) {
+        this.type = type;
+        this.tag = tag;
+        this.index = index;
+    }
+
+    /**
+     * Get the error type.
+     * @return type of the error
+     */
+    public Type getType() {
+        return type;
+    }
+
+    /**
+     * Get the error code tag.
+     * @return error code tag
+     */
+    public String getTag() {
+        return tag;
+    }
+
+    /**
+     * Get the error code index.
+     * @return error code index.
+     */
+    public int getIndex() {
+        return index;
+    }
+
+    @Override
+    public boolean equals(final Object other) {
+        if (this == other) return true;
+        if (other == null || getClass() != other.getClass()) return false;
+        final ErrorIdentifier that = (ErrorIdentifier) other;
+        return index == that.index && type == that.type && Objects.equals(tag, that.tag);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(type, tag, index);
+    }
+
+    /**
+     * Possible types of Exasol error codes.
      */
     public enum Type {
         /** Error */
@@ -66,6 +114,6 @@ public class ErrorIdentifier {
 
     @Override
     public String toString() {
-        return this.type.toString() + "-" + this.getTag() + "-" + this.getIndex();
+        return this.type.toString() + "-" + this.tag + "-" + this.index;
     }
 }
