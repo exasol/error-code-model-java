@@ -15,6 +15,13 @@ This release replaces JSON API `javax.json` with `jakarta.json` to avoid a faili
 ### Compile Dependency Updates
 
 * Updated `com.exasol:error-reporting-java:0.4.1` to `1.0.1`
+* Added `jakarta.json:jakarta.json-api:2.1.1`
+* Removed `javax.json:javax.json-api:1.1.4`
+* Removed `org.glassfish:javax.json:1.1.4`
+
+### Runtime Dependency Updates
+
+* Added `org.eclipse.parsson:parsson:1.1.1`
 
 ### Test Dependency Updates
 

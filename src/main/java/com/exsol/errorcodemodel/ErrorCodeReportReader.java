@@ -5,10 +5,10 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.util.*;
 
-import javax.json.*;
-import javax.json.spi.JsonProvider;
-
 import com.exasol.errorreporting.ExaError;
+
+import jakarta.json.*;
+import jakarta.json.spi.JsonProvider;
 
 /**
  * This class reads an {@link ErrorCodeReport} from JSON file.
