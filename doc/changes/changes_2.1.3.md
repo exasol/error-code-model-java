@@ -1,6 +1,6 @@
-# Error Code Model Java 2.1.3, released 2023-??-??
+# Error Code Model Java 2.1.3, released 2023-11-20
 
-Code name: Fix CVE-2023-4043 in test dependency `org.eclipse.parsson:parsson`
+Code name: Fix CVE-2023-4043 in dependency `org.eclipse.parsson:parsson`
 
 ## Summary
 
