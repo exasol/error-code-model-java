@@ -20,7 +20,7 @@
         <dependency>
             <groupId>org.eclipse.parsson</groupId>
             <artifactId>parsson</artifactId>
-            <version>1.1.7</version>
+            <version>1.1.9</version>
             <scope>runtime</scope>
         </dependency>
         <!-- test dependencies -->
@@ -34,14 +34,14 @@
             <groupId>nl.jqno.equalsverifier</groupId>
             <artifactId>equalsverifier</artifactId>
             <!-- Version 4 requires Java 17 -->
-            <version>3.19.4</version>
+            <version>4.5</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-params</artifactId>
             <!-- Version 6 requires Java 17 -->
-            <version>5.14.3</version>
+            <version>6.1.1</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -50,7 +50,7 @@
             <plugin>
                 <groupId>com.exasol</groupId>
                 <artifactId>project-keeper-maven-plugin</artifactId>
-                <version>5.4.6</version>
+                <version>5.7.2</version>
                 <executions>
                     <execution>
                         <goals>
